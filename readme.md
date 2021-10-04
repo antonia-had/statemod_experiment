@@ -10,13 +10,19 @@ git clone https://github.com/antonia-had/statemod_experiment.git
 
 Compile StateMod executable, download model files and create symbolic link to executable in input directory.
 
-Make sure you name the input file directory `Experiment_files` and place it inside this directory, to ensure file referencing works.
-
-Before you proceed, `Experiment_files` should contain all StateMod input files in the convention `cm2015B.*` and the StateMod executable.
-
 Directions for all this can be found in the first training in this series: https://cornell.box.com/s/xlwk6smzrikykmwyt2d7vxb7042puit0  
 
+Before you proceed, `cm2015_StateMod/StateMod` should contain all StateMod input files in the convention `cm2015B.*` and the StateMod executable.
+
+To test if it works run:
+```
+./statemod cm2015B -simulate
+```
+which should give you no errors and finish within 3 minutes. 
+At the end you should have several output and binary files created in the same repository (e.g., you should have a `cm2015B.xdd`). 
+
 ### Install necessary Python packages
+You need to create a virtual environment to host all the packages you need for this experiment.  
 ```
 python3 -m venv environment_name
 source environment_name/bin/activate
