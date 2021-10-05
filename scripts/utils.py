@@ -107,12 +107,13 @@ def writenewDDM(experiment_directory, all_data_DDM, firstline_ddm, original_IWR,
         row = all_data_DDM[j + firstline_ddm]
         row_data = [row[sum(lengths[:k]):sum(lengths[:k+1])] for k in range(len(lengths))]
         # If the structure is not in the ones we care about then do nothing
-        if row_data[1].strip() in users:
-            if row_data[1].strip() in irrigation:
+        structure_ID = row_data[1].strip()
+        if structure_ID in users:
+            if structure_ID in irrigation:
                 line_in_iwr = int(
-                    irrigation_encounters[irrigation.index(row_data[1])] * len(irrigation) + irrigation.index(
-                        row_data[1]))
-                irrigation_encounters[irrigation.index(row_data[1])] = +1
+                    irrigation_encounters[irrigation.index(structure_ID)] * len(irrigation) + irrigation.index(
+                        structure_ID))
+                irrigation_encounters[irrigation.index(structure_ID)] = +1
                 for m in range(len(change)):
                     change[m] = float(sample_IWR[line_in_iwr][2 + m]) - float(original_IWR[line_in_iwr][2 + m])
                     value = float(row_data[m + 2]) + change[m]
