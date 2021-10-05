@@ -62,5 +62,5 @@ sbatch ./scripts/submit_samples.sh
 This is another parallel processes using SLURM arrays. You need to create a directory to store outputs before submitting. 
 ```
 mkdir outputs
-sbatch scripts/submit_data_extraction.sh
+sbatch ./scripts/submit_data_extraction.sh
 ```
