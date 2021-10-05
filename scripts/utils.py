@@ -8,14 +8,14 @@ def writenewXBM(experiment_directory, all_split_data_XBM, all_data_XBM, firstlin
                 flow_factor, i):
     # replace former flows with new flows
     new_data = []
-    for i in range(len(all_split_data_XBM) - firstline_xbm):
+    for k in range(len(all_split_data_XBM) - firstline_xbm):
         row_data = []
         # split first 3 columns of row on space and find 1st month's flow
-        row_data.extend(all_split_data_XBM[i + firstline_xbm][0].split())
+        row_data.extend(all_split_data_XBM[k + firstline_xbm][0].split())
         row_data[2] = int(row_data[2])
         # find remaining months' flows
         for j in range(1, 12):
-            row_data.append(int(all_split_data_XBM[i + firstline_xbm][j]))
+            row_data.append(int(all_split_data_XBM[k + firstline_xbm][j]))
         # scale all flows
         for j in range(2, 14):
             row_data[j] = int(row_data[j] * flow_factor)
@@ -27,20 +27,20 @@ def writenewXBM(experiment_directory, all_split_data_XBM, all_data_XBM, firstlin
 
     f = open(experiment_directory + '/cm2015x_' + str(i) + '.xbm', 'w')
     # write firstLine # of rows as in initial file
-    for i in range(firstline_xbm):
-        f.write(all_data_XBM[i])
+    for k in range(firstline_xbm):
+        f.write(all_data_XBM[k])
 
-    for i in range(len(new_data)):
+    for k in range(len(new_data)):
         # write year, ID and first month of adjusted data
-        f.write(new_data[i][0] + ' ' + new_data[i][1] + (19 - len(new_data[i][1]) - len(new_data[i][2])) * ' ' +
-                new_data[i][2] + '.')
+        f.write(new_data[k][0] + ' ' + new_data[k][1] + (19 - len(new_data[k][1]) - len(new_data[k][2])) * ' ' +
+                new_data[k][2] + '.')
         # write all but last month of adjusted data
-        for j in range(len(new_data[i]) - 4):
-            f.write((7 - len(new_data[i][j + 3])) * ' ' + new_data[i][j + 3] + '.')
+        for j in range(len(new_data[k]) - 4):
+            f.write((7 - len(new_data[k][j + 3])) * ' ' + new_data[k][j + 3] + '.')
 
         # write last month of adjusted data
-        if len(new_data[i][-1]) <= 7:
-            f.write((7 - len(new_data[i][-1])) * ' ' + new_data[i][-1] + '.' + '\n')
+        if len(new_data[k][-1]) <= 7:
+            f.write((7 - len(new_data[k][-1])) * ' ' + new_data[k][-1] + '.' + '\n')
         else:
             f.write('********\n')
 
