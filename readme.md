@@ -38,7 +38,7 @@ Test if it runs **fully** before proceeding. At the end you should have several 
 ---
 
 ### 3. Install necessary Python packages
-You need to create a virtual environment to host all the packages you need for this experiment. To do so, navigate back to the experiment repository directory `statemod_experiment` and run the following commands:
+You need to create a virtual environment to host all the packages you need for this experiment. To do so, run the commands below. Be careful of where you execute each, virtual environments are typically stored in your home directory, so navigate to that to create and activate your environment, and navigate back to the experiment repository directory `statemod_experiment` to run the last command. 
 ```
 python3 -m venv environment_name
 source environment_name/bin/activate
