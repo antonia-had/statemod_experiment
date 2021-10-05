@@ -57,4 +57,9 @@ This is a parallel process using multiple cores exploiting SLURM job arrays. To 
 ```
 sbatch ./scripts/submit_samples.sh 
 ```
-### 3. Collect outputs for different users
+### 3. Collect all outputs into summary .parquet files
+This is another parallel processes using SLURM arrays. You need to create a directory to store outputs before submitting. 
+```
+mkdir outputs
+sbatch scripts/submit_data_extraction.sh
+```
