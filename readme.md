@@ -50,7 +50,7 @@ pip install -r requirements.txt
 This takes less than a second and can be run on the login node. 
 
 ```
-python3 ./scripts/generate_sample
+python3 ./scripts/generate_sample.py
 ```
 ### 2. Create new input files reflecting changes
 This is a parallel process using multiple cores

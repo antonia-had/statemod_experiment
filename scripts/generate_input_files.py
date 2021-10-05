@@ -13,7 +13,7 @@ template_RSP = Template(T.read())
 # Set up directory for all files
 experiment_directory = '../cm2015_StateMod/StateMod'
 # Read in parameter sample
-sample = np.loadtxt('./inputs/parameter_values.txt', dtype=float)
+sample = np.genfromtxt('./inputs/parameter_values.txt', dtype=float)
 # List of irrigation users
 irrigation = np.genfromtxt('./inputs/irrigation.txt', dtype='str').tolist()
 # List of transbasin users
