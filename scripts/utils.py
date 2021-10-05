@@ -15,13 +15,13 @@ def writenewXBM(experiment_directory, all_split_data_XBM, all_data_XBM, firstlin
         row_data[2] = int(row_data[2])
         # find remaining months' flows
         for j in range(1, 12):
-            print(all_split_data_XBM[i + firstline_xbm][j])
             row_data.append(int(all_split_data_XBM[i + firstline_xbm][j]))
         # scale all flows
         for j in range(2, 14):
             row_data[j] = int(row_data[j] * flow_factor)
         # calculate totals
         row_data.append(sum(row_data[2:]))
+        row_data = [str(x) for x in row_data]
         # append row of adjusted data
         new_data.append(row_data)
 
