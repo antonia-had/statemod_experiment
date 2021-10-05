@@ -102,7 +102,7 @@ def xxd_to_parquet(sample_number):
 
     df[sample_column_name] = sample_column_type(sample_number)
     df.to_parquet(
-        Path(f'./inputs/S{sample_number}.parquet'),
+        Path(f'./outputs/S{sample_number}.parquet'),
         engine='pyarrow',
         compression='gzip'
     )

@@ -8,8 +8,8 @@
 #SBATCH --array=1-10         # array of tasks to execute
 
 source /home/fs02/pmr82_0001/ah986/statemod_training/bin/activate
-DIR="/outputs/"
-if not [ -d "$DIR" ]; then
+DIR="./outputs/"
+if ! [ -d "$DIR" ]; then
   mkdir $DIR
 fi
 srun python3 ./scripts/extract_xdd.py $SLURM_ARRAY_TASK_ID
