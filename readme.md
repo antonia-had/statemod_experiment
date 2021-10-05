@@ -25,14 +25,17 @@ Test if it runs with:
 
 **Note: This only runs on linux machines.** 
 
-[Optional:]
+---
+Optional:
 You can compile the StateMod executable and download model files yourself. Directions for this can be found in the first training in this series (at the end of the slidedeck): https://cornell.box.com/s/xlwk6smzrikykmwyt2d7vxb7042puit0  
 
 Before you proceed, `cm2015_StateMod/StateMod` should contain all StateMod input files in the convention `cm2015B.*` and the StateMod executable.
 
 Test if it runs **fully** before proceeding. At the end you should have several output and binary files created in the same repository (e.g., you should have a `cm2015B.xdd`). 
 
- You can reduce number of reoperations to speed up model runs. To do this you need to edit the control file (`cm2015.ctl`) and change the value of the `ireopx` variable from 0 to 10. This is already done for you if you clone the `antonia-had/cm2015_StateMod` repository.   
+ You can reduce number of reoperations to speed up model runs. To do this you need to edit the control file (`cm2015.ctl`) and change the value of the `ireopx` variable from 0 to 10. This is already done for you if you clone the `antonia-had/cm2015_StateMod` repository.
+    
+---
 
 ### 3. Install necessary Python packages
 You need to create a virtual environment to host all the packages you need for this experiment. To do so, navigate back to the experiment repository directory `statemod_experiment` and run the following commands:
