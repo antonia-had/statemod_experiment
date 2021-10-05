@@ -18,4 +18,4 @@ problem = {
 # This is smaller for the purposes of demonstration.
 param_values = saltelli.sample(problem, 64, calc_second_order=False)
 
-np.savetxt('../inputs/parameter_values.txt', param_values, delimiter=',')
+np.savetxt('../../inputs/parameter_values.txt', param_values, delimiter=',')
