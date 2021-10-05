@@ -12,7 +12,9 @@ problem = {
                [0.5, 1.5]]
 }
 
-# Generate samples
+'''
+Generate samples
+'''
 # Note that an appropriate SA sample should be in the order of n*(m+2)
 # where m is the number of parameters and n is ~ 1000.
 # This is smaller for the purposes of demonstration.

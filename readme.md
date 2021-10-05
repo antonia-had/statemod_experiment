@@ -53,7 +53,8 @@ This takes less than a second and can be run on the login node.
 python3 ./scripts/generate_sample
 ```
 ### 2. Create new input files reflecting changes
-This is a parallel process depending on the 
+This is a parallel process using multiple cores
+ 
 3. Execute model runs
 4. Collect outputs for different users
 5. Generate figures 
