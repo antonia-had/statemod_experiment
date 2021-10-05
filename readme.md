@@ -42,6 +42,7 @@ You need to create a virtual environment to host all the packages you need for t
 ```
 python3 -m venv environment_name
 source environment_name/bin/activate
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
