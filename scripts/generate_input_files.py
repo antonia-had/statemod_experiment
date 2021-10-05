@@ -10,7 +10,7 @@ import numpy as np
 # Read RSP template
 T = open('./inputs/cm2015B_template.rsp', 'r')
 template_RSP = Template(T.read())
-# Set up directory for all files
+# Define directory for all files - change to match your own
 experiment_directory = '../cm2015_StateMod/StateMod'
 # Read in parameter sample
 sample = np.loadtxt('./inputs/parameter_values.txt', delimiter=',', dtype=float)
@@ -75,11 +75,12 @@ def input_scaling(i): #i=sample number
     f1.write(new_rsp)
     f1.close()
 
-    # print('running ' + scenario + '_' + str(k))
-    # # Run simulation
-    # os.chdir(projectdirectory + 'scenarios/' + scenario)
-    # os.system('./statemod {}_{} -simulate'.format(scenario, k))
-    # os.chdir(projectdirectory)
+    print('running cm2015B ' + str(i))
+    # Run simulation
+    processing_directory = os.getcwd() # get current
+    os.chdir(experiment_directory)
+    os.system('./statemod cm2015B_{} -simulate'.format(i))
+    os.chdir(processing_directory)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Create inputs for sample')
