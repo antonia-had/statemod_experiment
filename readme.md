@@ -52,9 +52,9 @@ This takes less than a second and can be run on the login node.
 ```
 python3 ./scripts/generate_sample.py
 ```
-### 2. Create new input files reflecting changes
-This is a parallel process using multiple cores
- 
-3. Execute model runs
-4. Collect outputs for different users
-5. Generate figures 
+### 2. Create new input files reflecting changes and execute runs
+This is a parallel process using multiple cores exploiting SLURM job arrays. To submit, run:
+```
+sbatch ./scripts/submit_samples.sh 
+```
+### 3. Collect outputs for different users

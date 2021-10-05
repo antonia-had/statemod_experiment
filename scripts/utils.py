@@ -5,7 +5,7 @@ lengths = [5, 12, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 10]  # lengths of interval
 lengths_XBM = [5, 13, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]
 
 def writenewXBM(experiment_directory, all_split_data_XBM, all_data_XBM, firstline_xbm,
-                flow_factor, i):
+                flow_factor, sample_number):
     # replace former flows with new flows
     new_data = []
     for k in range(len(all_split_data_XBM) - firstline_xbm):
@@ -25,7 +25,7 @@ def writenewXBM(experiment_directory, all_split_data_XBM, all_data_XBM, firstlin
         # append row of adjusted data
         new_data.append(row_data)
 
-    f = open(experiment_directory + '/cm2015x_' + str(i) + '.xbm', 'w')
+    f = open(experiment_directory + '/cm2015x_' + str(sample_number) + '.xbm', 'w')
     # write firstLine # of rows as in initial file
     for k in range(firstline_xbm):
         f.write(all_data_XBM[k])
@@ -48,7 +48,7 @@ def writenewXBM(experiment_directory, all_split_data_XBM, all_data_XBM, firstlin
 
 
 def writenewIWR(experiment_directory, all_split_data, all_data, firstline_iwr,
-                i, users, irrigation_demand_factor):
+                sample_number, users, irrigation_demand_factor):
     # replace former iwr demands with new
     new_data = []
     for j in range(len(all_split_data) - firstline_iwr):
@@ -72,7 +72,7 @@ def writenewIWR(experiment_directory, all_split_data, all_data, firstline_iwr,
         # append row of adjusted data
         new_data.append(row_data)
 
-    f = open(experiment_directory + '/cm2015B_' + str(i) + '.iwr', 'w')
+    f = open(experiment_directory + '/cm2015B_' + str(sample_number) + '.iwr', 'w')
     # write firstLine # of rows as in initial file
     for j in range(firstline_iwr):
         f.write(all_data[j])
@@ -89,9 +89,9 @@ def writenewIWR(experiment_directory, all_split_data, all_data, firstline_iwr,
     return None
 
 def writenewDDM(experiment_directory, all_data_DDM, firstline_ddm, original_IWR,
-                firstline_iwr, i, irrigation, transbasin, transbasin_demand_factor):
+                firstline_iwr, sample_number, irrigation, transbasin, transbasin_demand_factor):
     users = irrigation+transbasin
-    with open(experiment_directory + '/cm2015B_' + str(i) + '.iwr') as f:
+    with open(experiment_directory + '/cm2015B_' + str(sample_number) + '.iwr') as f:
         sample_IWR = [row for row in f.readlines()[firstline_iwr:]]
     for m in range(len(sample_IWR)):
         sample_IWR[m] = [sample_IWR[m][sum(lengths[:k]):sum(lengths[:k+1])] for k in range(len(lengths))]
@@ -126,7 +126,7 @@ def writenewDDM(experiment_directory, all_data_DDM, firstline_ddm, original_IWR,
         new_data.append(row_data)
         # write new data to file
 
-    f = open(experiment_directory + '/cm2015B_' + str(i) + '.ddm', 'w')
+    f = open(experiment_directory + '/cm2015B_' + str(sample_number) + '.ddm', 'w')
     # write firstLine # of rows as in initial file
     for j in range(firstline_ddm):
         f.write(all_data_DDM[j])
