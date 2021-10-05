@@ -109,9 +109,10 @@ def writenewDDM(experiment_directory, all_data_DDM, firstline_ddm, original_IWR,
         # If the structure is not in the ones we care about then do nothing
         if row_data[1].strip() in users:
             if row_data[1].strip() in irrigation:
-                index = np.where(users == row_data[1].strip())[0][0]
-                line_in_iwr = int(irrigation_encounters[index] * len(users) + index)
-                irrigation_encounters[index] = +1
+                line_in_iwr = int(
+                    irrigation_encounters[irrigation.index(row_data[1])] * len(irrigation) + irrigation.index(
+                        row_data[1]))
+                irrigation_encounters[irrigation.index(row_data[1])] = +1
                 for m in range(len(change)):
                     change[m] = float(sample_IWR[line_in_iwr][2 + m]) - float(original_IWR[line_in_iwr][2 + m])
                     value = float(row_data[m + 2]) + change[m]
